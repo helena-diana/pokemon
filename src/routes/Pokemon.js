@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PokemonCard from '../components/PokemonCard';
+import { fetchPokemons } from '../modules/pokemons/actions';
+import { connect } from 'react-redux';
 
-const Pokemon = (props) => {
-  return (
-    <>
-      {props.pokemons.map((e) => (
-        <PokemonCard key={JSON.stringify(e)} name={e.name} />
-      ))}
-    </>
-  );
-};
+export class Pokemon extends Component {
+  componentDidMount() {
+    this.props.fetchPokemons();
+  }
+  render() {
+    return (  
+      <>
+        <h1>Pokemon</h1>
+        <p className="count">You have {this.props.owned.length} pokemon</p>
+        {!this.props.pokemons && <p>No pokemons yet</p>}
+        {this.props.pokemons && this.props.pokemons.map((e) => (
+          <PokemonCard 
+            history={this.props.history}
+            key={JSON.stringify(e)} 
+            id={parseInt(e.url.replace('https://pokeapi.co/api/v2/pokemon/', ''), 10)}
+            name={e.name} />
+        ))}
+      </>
+    );
+  } 
+}
 
-export default Pokemon;
+const mapToProps = ({ pokemons, owned }) => ({ pokemons: pokemons.payload, owned });
+
+export default connect(mapToProps,{ fetchPokemons })(Pokemon);

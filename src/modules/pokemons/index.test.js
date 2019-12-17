@@ -5,7 +5,7 @@ describe('pokemons reducer', () => {
   const pokemons = { payload: [{ name: 'pikachu' }], loading: false };
 
   it('set pokemon list', () => {
-    expect(pokemonsReducer(undefined, { type: actions.SET_POKEMONS, pokemons })).toEqual(pokemons);
+    expect(pokemonsReducer(undefined, { type: actions.SET_POKEMONS, pokemons: pokemons.payload })).toEqual(pokemons);
   });
 
   it('unknown action type', () => {

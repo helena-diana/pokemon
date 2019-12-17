@@ -5,7 +5,8 @@ const pokemonReducer = (state = {}, actions) => {
     case SET_POKEMONS:
       return {
         ...state,
-        ...actions.pokemons,
+        loading: false,
+        payload: actions.pokemons,
       };
     case FETCH_POKEMONS:
       return {

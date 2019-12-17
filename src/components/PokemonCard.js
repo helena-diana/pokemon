@@ -1,15 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-// class PokemonCard extends Component {
-//   render() {
-//     return <p>{this.props.name}</p>;
-//   }
-// }
-
-const PokemonCard = ({ name }) => (
-  <>
-    <p>{name}</p>
-  </>
-)
+const PokemonCard = (props) => {
+  const { name, id } = props;
+  const goToDetail = () => {
+    props.history.push(`/pokemon/${id}`);
+  }
+  return (
+    <div onClick={goToDetail} className="card">
+      <p>{name}</p>
+      {
+        props.releasePokemon && (
+          <b onClick={() => props.releasePokemon(id)} class="link">Release</b>
+        )
+      }
+    </div>
+  )
+}
 
 export default PokemonCard;

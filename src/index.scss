@@ -1,0 +1,122 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #434343;
+  min-height: 100vh;
+}
+
+header {
+  position: sticky;
+  background: white;
+  box-shadow: 0 0 5px 1px #dedede;
+  top: 0;
+  display: flex;
+  border-bottom: 1px solid #dedede;
+  a {
+    text-decoration: none;
+    padding: 1rem;
+    flex-basis: 50%;
+    display: block;
+    text-align: center;
+    color: #434343;
+    &.active {
+      color: white;
+      background: green;
+    }
+    &:first-child {
+      border-right: 1px solid #dedede;
+    }
+
+  }
+}
+
+article {
+  padding: 1rem 1rem 15rem 1rem;
+}
+
+h1 {
+  text-transform: capitalize;
+}
+
+img {
+  &.small {
+    height: 100px;
+  }
+  &.large {
+    height: 200px;
+  }
+}
+
+button {
+  font-size: 1rem;
+  color: white;
+  background: green;
+  border-radius: 0.25rem;
+  border: 0;
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+}
+
+.link {
+  cursor: pointer;
+  color: green;
+}
+
+.card {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid #dedede;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  p {
+    text-transform: capitalize;
+  }
+}
+
+input {
+  border: 1px solid #dedede;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+label {
+  background: #dedede;
+  border-radius: 0.25rem;
+  margin: 0 1rem 0.5rem 0;
+  padding: 0.5rem;
+  color: #717171;
+  font-size: 0.8rem;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  box-shadow: 0 0 5px 1px #dedede;
+  padding: 1rem;
+  > button {
+    margin: -1rem;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0;
+  }
+  > input {
+    margin-bottom: 2rem;
+    // width: calc(100% - 2rem);
+  }
+}
+
+@media screen and (min-width: 769px) {
+  
+}
