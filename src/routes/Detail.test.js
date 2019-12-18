@@ -1,11 +1,21 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { Detail } from './Detail';
 
 describe('Detail', () => {
-  it('render owned', () => {
-    const props = { owned: [{ id: 1 }], match: { params: { id: 2 } } }
-    const detail = mount(<Detail {...props} />);
-    expect(detail.find('.button-get-pokemons').exists()).toBe(true);
+  const mockHistoryPush = jest.fn();
+  const props = { owned: [{ id: 1, name: 'pikachu', nickname: 'sikuning' }], match: { params: { id: 2 } }, history: { push: mockHistoryPush } }
+  const detail = shallow(<Detail {...props} />);
+  
+  it('render please wait', () => {
+    expect(detail.state().pokemon).toEqual({});
+    expect(detail.find('p').text()).toEqual('please wait..');
   });
+
+  it('render title pokemon', () => {
+    detail.setState({ ...detail.state(), pokemon: { name: 'barauw', id: 3, sprites: { front_detault: 'http://image' } } });
+    expect(detail.find('h1').text()).toEqual('barauw');
+  });
+
+
 }); 

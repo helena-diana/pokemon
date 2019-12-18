@@ -22,14 +22,4 @@ describe('Pokemon', () => {
     });
   });
 
-  describe('when user click releasePokemon function props actions', () => {
-    beforeEach(() => {
-      pokemonCard.find('b').simulate('click');
-    })
-    it('history push function should be called', () => {
-      expect(mockReleasePokemon).toHaveBeenCalled();
-      expect(mockReleasePokemon).toHaveBeenCalledWith(props.id);
-    });
-  });
-
 });

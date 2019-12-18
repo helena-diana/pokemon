@@ -8,11 +8,6 @@ const PokemonCard = (props) => {
   return (
     <div onClick={goToDetail} className="card">
       <p>{name}</p>
-      {
-        props.releasePokemon && (
-          <b onClick={() => props.releasePokemon(id)} class="link">Release</b>
-        )
-      }
     </div>
   )
 }

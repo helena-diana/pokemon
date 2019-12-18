@@ -1,7 +1,6 @@
 import React from 'react';
 import PokemonCard from '../components/PokemonCard';
 import { connect } from 'react-redux';
-import { releasePokemon } from '../modules/owned/actions';
 
 export const Owned = (props) => {
   const goToPokemon = () => {
@@ -17,11 +16,10 @@ export const Owned = (props) => {
           key={JSON.stringify(e)} 
           id={e.id}
           name={e.name}
-          releasePokemon={props.releasePokemon}
         />
       ))}
     </>
   );
 };
 
-export default connect(({ owned }) => ({ owned }), { releasePokemon })(Owned);
+export default connect(({ owned }) => ({ owned }), null)(Owned);
